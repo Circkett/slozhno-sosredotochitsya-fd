@@ -1,10 +1,15 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+body {
+  min-width: 375px;
+}
+
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   background-image: var(--bg-image);
   background-position: center;
   background-attachment: fixed;
+  background-size: cover;
   background-color: var(--bg-color);
 }
 
@@ -14,7 +19,7 @@
   display: grid;
   grid-template-columns: minmax(228px, 2fr) minmax(127px, 1fr);
   grid-template-rows: minmax(238px, auto)  minmax(95px, auto)  minmax(97px, auto)  minmax(228px, auto);
-  margin: 10px;
+  margin: 10px 10px 0 10px;
 }
 
 .decorated-zone {
@@ -27,7 +32,7 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  border: 1px solid #FF0070;
+  border: 1px solid var(--accent-color);
 }
 
 .decorated-zone::before {
@@ -38,22 +43,25 @@
 }
 
 .decorated-zone::after {
-  right: 0;
+  left: 0;
   bottom: 0;
-  border-left: none;
+  border-right: none;
   border-top: none;
 }
 
 .decorated-text {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 18px;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
   font-weight: 400;
-  color: #FF0070;
+  color: var(--accent-color);
   display: block;
   position: absolute;
   line-height: 25px;
   right: 10px;
-  top: 10px;
+}
+
+.theme-light .decorated-text {
+  display: none;
 }
 
 .decorated-text::after {
@@ -63,8 +71,8 @@
   height: 9px;
   margin-left: 10px;
   border-radius: 50%;
-  background-color: #FF0070;
-  box-shadow: 0 0 4px 2px #FF0070;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
 .header__theme-menu {
@@ -86,9 +94,9 @@
 }
 
 .header__theme-menu-button {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 18px;
-  color: #FF0070;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--accent-color);
   width: 70px;
   height: 26px;
   line-height: 18px;
@@ -100,12 +108,12 @@
   text-transform: lowercase;
 }
 
-.header__theme-menu-button:focus {
-  border-bottom: 1px solid #FF0070;
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--accent-color);
 }
 
-.header__theme-menu-button:hover:not(:focus) {
-  outline: 1px solid #FF0070;
+.header__theme-menu-button:hover:not(:focus-visible) {
+  outline: 1px solid var(--accent-color);
 }
 
 
@@ -114,7 +122,7 @@
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid #FF0070;
+  outline: 1px solid var(--accent-color);
 }
 
 .header__theme-menu-button_type_auto {
@@ -132,17 +140,23 @@
   grid-row: 2 / 4;
 }
 
-.header__title {
-  font-family: "IBM Plex Mono", monospace;
+.title {
+  font-family: var(--font-family);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   font-weight: 700;
   line-height: 83%;
-  color: #DB00FF;
+  color: var(--title-color);
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 @media (min-width: 768px) {
-  .header__title {
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
@@ -150,14 +164,149 @@
 .header__title-text {
   block-size: 117px;
   inline-size: 355px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
   letter-spacing: 1px;
   line-height: 23.4px;
-  color: #000028;
 }
 
 .title-decor {
-  background-color: #FF0070;
+  background-color: var(--accent-color);
+  color: #000028;
+  font-weight: 700;
+  font-size: var(--font-size);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(228px, 2fr) minmax(127px, 1fr);
+  background-color: var(--bg-color);
+  padding: 40px 0;
+}
+
+.container {
+  display: grid;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: 23.4px;
+  grid-column: 1 / 3;
+  min-width: 355px;
+  margin: 0 10px 10px 10px;
+}
+
+.focus-problems {
+  gap: 20px;
+}
+
+.focus-title {
+  color: var(--accent-color);
+  font-size: var(--font-size);
+}
+
+.focus-list {
+  display: grid;
+  gap: 20px;
+}
+
+.focus-list__item {
+  display: grid;
+  gap: 10px;
+}
+
+.article-title {
+  display: grid;
+  gap: 10px;
+}
+
+p {
+  color: var(--text-color);
+}
+
+.highlight {
+  text-shadow: 3px 2px var(--accent-color);
+}
+
+.highlight-link {
+  text-decoration: none;
+}
+
+.highlight-link:hover:not(:focus-visible) {
+  text-decoration: underline;
+}
+
+.highlight-link:focus-visible {
+  outline: 1px solid var(--text-color);
+}
+
+.focus-factors {
+  display: grid;
+  gap: 20px;
+}
+
+.focus-tips {
+  display: grid;
+  gap: 20px;
+}
+
+.focus-tips__title {
+  font-weight: 400;
+}
+
+.focus-images {
+  display: grid;
+  gap: 10px;
+  padding-top: 40px;
+}
+
+.focus-images__image {
+  width: 355px;
+}
+
+.footer {
+  height: 100vh;
+  min-height: 668px;
+  display: grid;
+  grid-template-columns: minmax(228px, 2fr) minmax(127px, 1fr);
+  align-items: center;
+  background-color: var(--bg-color);
+}
+
+.footer__content {
+  grid-column: 1 / 3;
+  justify-self: center;
+}
+
+@media (min-width: 768px) {
+  .header {
+    grid-template-columns: minmax(236px, 3fr) minmax(20px, 1fr) minmax(108px, 2fr) minmax(364px, 4fr);
+    grid-template-rows: minmax(443px, 2fr) minmax(99px, 1fr) minmax(442px, 2fr);
+  }
+
+  .header__theme-menu {
+    grid-column: 4;
+    margin-top: 172px;
+  }
+
+  .main {
+    grid-template-columns: minmax(236px, 3fr) minmax(20px, 1fr) minmax(108px, 2fr) minmax(364px, 4fr);
+  }
+
+  .footer {
+    grid-template-columns: minmax(236px, 3fr) minmax(20px, 1fr) minmax(108px, 2fr) minmax(364px, 4fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    grid-template-columns: minmax(315px, 3fr) minmax(20px, 1fr) minmax(157px, 2fr) minmax(157px, 2fr) minmax(20px, 1fr) minmax(315px, 3fr);
+    grid-template-rows: minmax(299px, 2fr) minmax(130px, 1fr) minmax(299px, 2fr);
+  }
+
+  .main {
+    grid-template-columns: minmax(315px, 3fr) minmax(20px, 1fr) minmax(157px, 2fr) minmax(157px, 2fr) minmax(20px, 1fr) minmax(315px, 3fr);
+  }
+
+  .footer {
+    grid-template-columns: minmax(315px, 3fr) minmax(20px, 1fr) minmax(157px, 2fr) minmax(157px, 2fr) minmax(20px, 1fr) minmax(315px, 3fr);
+  }
 }
