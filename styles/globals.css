@@ -12,6 +12,13 @@ body {
   margin: 0 auto;
 }
 
+.header,
+.main,
+.footer {
+  min-width: 0;
+}
+
+
 h1,
 h2,
 h3,

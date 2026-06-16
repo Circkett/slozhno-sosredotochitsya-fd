@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
-body {
-  min-width: 375px;
+* {
+  outline: 1px solid red;
+  max-width: 100vw;
 }
 
 .page {
@@ -17,9 +17,9 @@ body {
   height: 100vh;
   min-height: 668px;
   display: grid;
-  grid-template-columns: minmax(228px, 2fr) minmax(127px, 1fr);
-  grid-template-rows: minmax(238px, auto)  minmax(95px, auto)  minmax(97px, auto)  minmax(228px, auto);
-  margin: 10px 10px 0 10px;
+  grid-template-columns: var(--column-mobile);
+  grid-template-rows: var(--row-mobile);
+  padding: 10px 10px 0 10px;
 }
 
 .decorated-zone {
@@ -36,15 +36,15 @@ body {
 }
 
 .decorated-zone::before {
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
   border-left: none;
   border-bottom: none;
 }
 
 .decorated-zone::after {
-  left: 0;
-  bottom: 0;
+  left: 10px;
+  bottom: 10px;
   border-right: none;
   border-top: none;
 }
@@ -57,7 +57,8 @@ body {
   display: block;
   position: absolute;
   line-height: 25px;
-  right: 10px;
+  right: 20px;
+  top: 10px;
 }
 
 .theme-light .decorated-text {
@@ -133,13 +134,6 @@ body {
 
 }
 
-.header__section {
-  display: grid;
-  gap: 55px;
-  grid-column: 1 / 2;
-  grid-row: 2 / 4;
-}
-
 .title {
   font-family: var(--font-family);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -147,6 +141,8 @@ body {
   line-height: 83%;
   color: var(--title-color);
   text-shadow: 4px 4px 0 var(--accent-color);
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
 }
 
 @media (min-width: 768px) {
@@ -162,12 +158,15 @@ body {
 }
 
 .header__title-text {
-  block-size: 117px;
-  inline-size: 355px;
+  width: 100%;
+  max-width: 100%;
   font-family: var(--font-family);
   font-size: var(--font-size);
   letter-spacing: 1px;
   line-height: 23.4px;
+  grid-column: 1 / 2;
+  grid-row: 4;
+  margin: 55px 0;
 }
 
 .title-decor {
@@ -179,9 +178,8 @@ body {
 
 .main {
   display: grid;
-  grid-template-columns: minmax(228px, 2fr) minmax(127px, 1fr);
+  padding: 0 10px;
   background-color: var(--bg-color);
-  padding: 40px 0;
 }
 
 .container {
@@ -189,18 +187,17 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size);
   line-height: 23.4px;
-  grid-column: 1 / 3;
-  min-width: 355px;
-  margin: 0 10px 10px 10px;
 }
 
 .focus-problems {
+  display: grid;
   gap: 20px;
 }
 
 .focus-title {
   color: var(--accent-color);
   font-size: var(--font-size);
+  margin-top: 55px;
 }
 
 .focus-list {
@@ -222,12 +219,9 @@ p {
   color: var(--text-color);
 }
 
-.highlight {
-  text-shadow: 3px 2px var(--accent-color);
-}
-
 .highlight-link {
   text-decoration: none;
+  text-shadow: 3px 2px var(--accent-color);
 }
 
 .highlight-link:hover:not(:focus-visible) {
@@ -255,18 +249,20 @@ p {
 .focus-images {
   display: grid;
   gap: 10px;
-  padding-top: 40px;
+  padding-top: 50px;
 }
 
 .focus-images__image {
-  width: 355px;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .footer {
   height: 100vh;
   min-height: 668px;
   display: grid;
-  grid-template-columns: minmax(228px, 2fr) minmax(127px, 1fr);
+  grid-template-columns: var(--column-mobile);
   align-items: center;
   background-color: var(--bg-color);
 }
@@ -276,37 +272,55 @@ p {
   justify-self: center;
 }
 
+.title--shadow {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
 @media (min-width: 768px) {
   .header {
-    grid-template-columns: minmax(236px, 3fr) minmax(20px, 1fr) minmax(108px, 2fr) minmax(364px, 4fr);
-    grid-template-rows: minmax(443px, 2fr) minmax(99px, 1fr) minmax(442px, 2fr);
+    grid-template-columns: var(--column-tablet);
+    grid-template-rows: var(--row-tablet);
   }
 
   .header__theme-menu {
     grid-column: 4;
-    margin-top: 172px;
+    margin-top: 146px;
   }
 
-  .main {
-    grid-template-columns: minmax(236px, 3fr) minmax(20px, 1fr) minmax(108px, 2fr) minmax(364px, 4fr);
+  .title {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .header__title-text {
+    grid-column: 4;
+    grid-row: 3 / 4;
+  }
+
+  .focus-problems {
+    grid-template-columns: var(--column-tablet);
+  }
+
+  .article-title {
+    grid-column: 3 / 5;
   }
 
   .footer {
-    grid-template-columns: minmax(236px, 3fr) minmax(20px, 1fr) minmax(108px, 2fr) minmax(364px, 4fr);
+    grid-template-columns: var(--column-tablet);
   }
 }
 
 @media (min-width: 1024px) {
   .header {
-    grid-template-columns: minmax(315px, 3fr) minmax(20px, 1fr) minmax(157px, 2fr) minmax(157px, 2fr) minmax(20px, 1fr) minmax(315px, 3fr);
-    grid-template-rows: minmax(299px, 2fr) minmax(130px, 1fr) minmax(299px, 2fr);
+    grid-template-columns: var(--column-desktop);
+    grid-template-rows: var(--row-desktop);
   }
 
   .main {
-    grid-template-columns: minmax(315px, 3fr) minmax(20px, 1fr) minmax(157px, 2fr) minmax(157px, 2fr) minmax(20px, 1fr) minmax(315px, 3fr);
+    grid-template-columns: var(--column-desktop);
   }
 
   .footer {
-    grid-template-columns: minmax(315px, 3fr) minmax(20px, 1fr) minmax(157px, 2fr) minmax(157px, 2fr) minmax(20px, 1fr) minmax(315px, 3fr);
+    grid-template-columns: var(--column-desktop);
   }
 }
