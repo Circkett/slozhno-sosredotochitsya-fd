@@ -3,7 +3,7 @@
   и их переопределение под различные устройства
 */
 :root {
-  --bg-image: url("/images/cover-image-dark.png");
+  --bg-image: url("../images/cover-image-dark.png");
   --bg-color: #000028;
   --title-color: #DB00FF;
   --accent-color: #FF0070;
@@ -12,7 +12,7 @@
   --font-size: 18px;
   --column-mobile: minmax(0, 2fr) minmax(0, 1fr);
   --column-tablet: 236px 20px 108px 364px;
-  --column-desktop: 315px 20px 157px 157px 20px 315px;
+  --column-desktop: minmax(315px, 1fr) 20px 157px 157px 20px minmax(315px, 1fr);
   --row-mobile: 2fr  1fr 1fr  2fr;
   --row-tablet: minmax(0, 2fr) minmax(0, 1fr) minmax(0px, 2fr);
   --row-desktop: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 2fr);
