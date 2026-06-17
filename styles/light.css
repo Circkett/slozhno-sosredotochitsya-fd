@@ -10,20 +10,20 @@
     чем стили в медиазапросе предпочтений пользователя
     
   */
-  --bg-image: url("../images/cover-image-light.png");
-  --bg-color: #FFF1F7;
-  --title-color: #FFC2E6;
-  --accent-color: #FF8DCB;
+  --bg-image: url(../images/cover-image-light.png);
+  --bg-color: #fff1f7;
+  --title-color: #ffc2e6;
+  --accent-color: #ff8dcb;
   --text-color: #353430;
 }
 
 @media (prefers-color-scheme: light) {
+
   :root {
-  --bg-image: url("../images/cover-image-light.png");
-  --bg-color: #FFF1F7;
-  --title-color: #FFC2E6;
-  --accent-color: #FF8DCB;
-  --text-color: #353430;
+    --bg-image: url(../images/cover-image-light.png);
+    --bg-color: #fff1f7;
+    --title-color: #ffc2e6;
+    --accent-color: #ff8dcb;
+    --text-color: #353430;
   }
-  
 }
