@@ -223,6 +223,10 @@ p {
   text-shadow: 3px 2px var(--link-text-color);
 }
 
+.highlight-link:focus {
+    outline: none;
+}
+
 .highlight-link:focus-visible {
   outline: 1px solid var(--link-hover-color);
 }
