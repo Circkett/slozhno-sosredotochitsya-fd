@@ -434,12 +434,16 @@ p {
     grid-column: 6;
   }
 
-  .title {
+  .title-container {
     grid-column: 1 / 7;
   }
 
-  .header__title-text {
-    grid-column: 6;
+  .text-container {
+    grid-column: 4 / 7;
+  }
+
+  p {
+    letter-spacing: 0;
   }
 
   .main {
@@ -451,7 +455,7 @@ p {
   }
 
   .focus-factors {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .focus-tips {
