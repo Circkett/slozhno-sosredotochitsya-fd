@@ -11,7 +11,16 @@
   */
   --bg-image: url(../images/cover-image-dark.png);
   --bg-color: #000028;
+  --decorated-zone-color: #ff0070;
+  --decorated-text-color: #ff0070;
+  --menu-color: #ff0070;
   --title-color: #db00ff;
-  --accent-color: #ff0070;
-  --text-color: #f1b2ce;
+  --shadow-title-color: #ff0070;
+  --accent-background-color: #ff0070;
+  --accent-text-color: #ff0070;
+  --header-text-color: #000028;
+  --main-header-color: #ff0070;
+  --main-text-color: #f1b2ce;
+  --link-text-color: #ff0070;
+  --link-hover-color: #ff0070;
 }
