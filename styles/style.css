@@ -226,7 +226,6 @@ p {
   text-shadow: 3px 2px var(--accent-color);
 }
 
-
 .highlight-link:focus-visible {
   outline: 1px solid var(--text-color);
 }
@@ -368,7 +367,7 @@ p {
   .focus-problems .focus-title {
     grid-column: 1;
   }
-  
+
   .focus-title--narrow {
     max-width: 150px;
   }
@@ -441,22 +440,22 @@ p {
   }
 
   .decorated-zone::before {
-  top: 20px;
-  right: 10px;
-  border-left: none;
-  border-bottom: none;
-}
+    top: 20px;
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+  }
 
-.decorated-zone::after {
-  left: 20px;
-  bottom: 20px;
-  border-right: none;
-  border-top: none;
-}
+  .decorated-zone::after {
+    left: 20px;
+    bottom: 20px;
+    border-right: none;
+    border-top: none;
+  }
 
-.decorated-text {
-  right: 20px;
-}
+  .decorated-text {
+    right: 20px;
+  }
 
   .header__theme-menu {
     grid-column: 3 / 5;
@@ -509,6 +508,4 @@ p {
   .focus-tips {
     grid-template-columns: minmax(315px, 1fr) minmax(0, 2fr);
   }
-
-
 }
