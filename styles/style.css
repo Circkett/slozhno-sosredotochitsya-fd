@@ -186,6 +186,16 @@
   letter-spacing: 1px;
 }
 
+.focus-factor-list {
+  display: grid;
+  gap: 20px;
+}
+
+.focus-factor-list__item {
+  display: grid;
+  gap: 10px;
+}
+
 .list-container {
   display: grid;
   gap: 20px;
